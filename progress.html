@@ -13,41 +13,29 @@
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-gradient-to-b from-slate-900 via-slate-950 to-black text-white min-h-screen flex flex-col">
+<body class="bg-slate-950 text-white min-h-screen flex flex-col">
 
   <!-- Navbar -->
-  <header class="sticky top-0 bg-slate-800/80 backdrop-blur z-50 shadow" data-aos="fade-down">
-    <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center">
+  <header class="sticky top-0 bg-slate-800/90 backdrop-blur z-50 shadow">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-teal-400">Pavan Thadari</h1>
-      <ul class="flex flex-wrap gap-4 text-sm font-medium justify-center sm:justify-end mt-4 sm:mt-0">
-        <li><a href="index.html" class="hover:text-teal-400 transition">Home</a></li>
-        <li><a href="index.html#about" class="hover:text-teal-400 transition">About</a></li>
-        <li><a href="index.html#skills" class="hover:text-teal-400 transition">Skills</a></li>
-        <li><a href="index.html#projects" class="hover:text-teal-400 transition">Projects</a></li>
-        <li><a href="resume.html" class="hover:text-teal-400 transition">Resume</a></li>
-        <li><a href="progress.html" class="text-teal-400 font-semibold transition">My Blog</a></li>
-        <li><a href="index.html#contact" class="hover:text-teal-400 transition">Contact</a></li>
+      <ul class="flex space-x-6 text-sm font-medium">
+        <li><a href="index.html" class="hover:text-teal-400">Home</a></li>
+        <li><a href="resume.html" class="hover:text-teal-400">Resume</a></li>
+        <li><a href="progress.html" class="text-teal-400 font-semibold">My Blog</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Main Section -->
-  <main class="flex-grow px-4 py-16 max-w-5xl mx-auto" data-aos="fade-up">
-    <h2 class="text-4xl font-extrabold mb-8 text-center text-white">🚀 Learning Progress Log</h2>
+  <!-- Title -->
+  <section class="text-center py-12" data-aos="fade-in">
+    <h2 class="text-4xl font-extrabold mb-2">📘 200 Days of Learning</h2>
+    <p class="text-slate-400 text-lg">Click a card to view what I did each day!</p>
+  </section>
 
-    <!-- Search Bar -->
-    <div class="mb-8 text-center">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search Day..."
-        class="w-full max-w-sm px-4 py-2 text-black rounded-xl shadow-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500"
-        onkeyup="filterDays()"
-      />
-    </div>
-
-    <!-- Day List -->
-    <ul id="dayList" class="space-y-4 text-slate-300" data-aos="fade-up" data-aos-delay="100"></ul>
+  <!-- Grid of Cards -->
+  <main class="max-w-7xl mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="dayCards" data-aos="fade-up"></div>
   </main>
 
   <!-- Footer -->
@@ -55,43 +43,25 @@
     &copy; 2025 Pavan Thadari. All rights reserved.
   </footer>
 
-  <!-- Script to generate and filter days -->
-  <script>
-    const dayList = document.getElementById('dayList');
-
-    for (let i = 1; i <= 196; i++) {
-      const li = document.createElement('li');
-      li.className = "bg-slate-800 p-4 rounded-xl hover:scale-[1.02] hover:bg-slate-700 transition-all shadow-md";
-
-      const link = document.createElement('a');
-      link.href = `days/day${i}.html`;
-      link.textContent = `Day ${i}`;
-      link.className = "block text-lg font-bold text-teal-400 hover:underline";
-      link.target = "_blank";
-
-      const desc = document.createElement('p');
-      desc.textContent = `I am from Day ${i}`;
-      desc.className = "text-slate-400 text-sm mt-1";
-
-      li.appendChild(link);
-      li.appendChild(desc);
-      dayList.appendChild(li);
-    }
-
-    function filterDays() {
-      const filter = document.getElementById('searchInput').value.toUpperCase();
-      const lis = dayList.getElementsByTagName('li');
-      for (let i = 0; i < lis.length; i++) {
-        const txtValue = lis[i].innerText;
-        lis[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
-      }
-    }
-  </script>
-
-  <!-- AOS Animation Script -->
+  <!-- AOS + Card Script -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ once: true });
+
+    const dayCards = document.getElementById('dayCards');
+    for (let i = 1; i <= 200; i++) {
+      const card = document.createElement('a');
+      card.href = `days/day${i}.html`;
+      card.target = "_blank";
+      card.className = "bg-slate-800 rounded-xl p-6 shadow hover:shadow-xl hover:bg-slate-700 transition-all flex flex-col justify-center items-center text-center";
+
+      card.innerHTML = `
+        <div class="text-3xl font-bold text-teal-400 mb-2">Day ${i}</div>
+        <p class="text-sm text-slate-300">I am from Day ${i}</p>
+      `;
+
+      dayCards.appendChild(card);
+    }
   </script>
 </body>
 </html>
