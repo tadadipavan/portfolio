@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Blog | Pavan Thadari</title>
+  <title>My Progress | Pavan Thadari</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
@@ -29,9 +29,25 @@
     </nav>
   </header>
 
-  <!-- Coming Soon Message -->
-  <main class="flex-grow flex items-center justify-center px-4 text-center">
-    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-wide">🚧 Blog Coming Soon</h1>
+  <!-- Blog Progress Section -->
+  <main class="flex-grow px-4 py-16 max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center">🚀 Learning Progress Log</h2>
+
+    <!-- Search Bar -->
+    <div class="mb-6 text-center">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search Day..."
+        class="w-full max-w-sm px-4 py-2 text-black rounded-lg shadow"
+        onkeyup="filterDays()"
+      />
+    </div>
+
+    <!-- List of Days -->
+    <ul id="dayList" class="space-y-2 text-slate-300">
+      <!-- Dynamically insert days via JavaScript -->
+    </ul>
   </main>
 
   <!-- Footer -->
@@ -39,5 +55,24 @@
     &copy; 2025 Pavan Thadari. All rights reserved.
   </footer>
 
+  <!-- Script to generate and filter days -->
+  <script>
+    const dayList = document.getElementById('dayList');
+    for (let i = 1; i <= 196; i++) {
+      const li = document.createElement('li');
+      li.textContent = `Day ${i}`;
+      li.className = "bg-slate-800 p-3 rounded hover:bg-slate-700 transition";
+      dayList.appendChild(li);
+    }
+
+    function filterDays() {
+      const filter = document.getElementById('searchInput').value.toUpperCase();
+      const lis = dayList.getElementsByTagName('li');
+      for (let i = 0; i < lis.length; i++) {
+        const txtValue = lis[i].textContent || lis[i].innerText;
+        lis[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
+      }
+    }
+  </script>
 </body>
 </html>
