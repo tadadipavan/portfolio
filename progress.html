@@ -45,9 +45,7 @@
     </div>
 
     <!-- List of Days -->
-    <ul id="dayList" class="space-y-2 text-slate-300">
-      <!-- Dynamically insert days via JavaScript -->
-    </ul>
+    <ul id="dayList" class="space-y-2 text-slate-300"></ul>
   </main>
 
   <!-- Footer -->
@@ -55,13 +53,26 @@
     &copy; 2025 Pavan Thadari. All rights reserved.
   </footer>
 
-  <!-- Script to generate and filter days -->
+  <!-- Script -->
   <script>
     const dayList = document.getElementById('dayList');
+
     for (let i = 1; i <= 196; i++) {
       const li = document.createElement('li');
-      li.textContent = `Day ${i}`;
-      li.className = "bg-slate-800 p-3 rounded hover:bg-slate-700 transition";
+      li.className = "bg-slate-800 p-4 rounded hover:bg-slate-700 transition";
+
+      const link = document.createElement('a');
+      link.href = `day${i}.html`;
+      link.textContent = `Day ${i}`;
+      link.className = "block text-lg font-semibold text-teal-400 hover:underline";
+      link.target = "_blank";
+
+      const desc = document.createElement('p');
+      desc.textContent = `I am from Day ${i}`;
+      desc.className = "text-slate-300 text-sm mt-1";
+
+      li.appendChild(link);
+      li.appendChild(desc);
       dayList.appendChild(li);
     }
 
@@ -69,7 +80,7 @@
       const filter = document.getElementById('searchInput').value.toUpperCase();
       const lis = dayList.getElementsByTagName('li');
       for (let i = 0; i < lis.length; i++) {
-        const txtValue = lis[i].textContent || lis[i].innerText;
+        const txtValue = lis[i].innerText;
         lis[i].style.display = txtValue.toUpperCase().includes(filter) ? "" : "none";
       }
     }
