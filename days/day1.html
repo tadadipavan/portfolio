@@ -1,30 +1,100 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Day 1 | Pavan Thadari</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1, Part 1: S3 Static Website Hosting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .endpoint-url {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            word-break: break-all;
+            font-family: monospace;
+            margin-top: 15px;
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center px-6">
+<body>
+    <div class="container">
+        <h1>AWS Cloud Journey: Day 1 Accomplishment!</h1>
 
-  <main class="text-center max-w-2xl">
-    <h1 class="text-5xl font-extrabold mb-6 text-teal-400">🚀 I am from Day 1</h1>
-    <p class="text-slate-300 text-lg leading-relaxed mb-6">
-      Today I began my AWS hands-on journey by launching and configuring my first EC2 instance. I installed Nginx and hosted a static HTML page, successfully accessing it via the public IP.
-    </p>
-    <a href="progress.html" class="inline-block mt-4 text-teal-500 hover:underline text-sm">← Back to Blog</a>
-  </main>
+        <h2>Part 1: Static Website Hosting on S3</h2>
 
-  <footer class="absolute bottom-4 text-sm text-slate-500">
-    &copy; 2025 Pavan Thadari
-  </footer>
+        <p class="success">Congratulations! You have successfully completed the first part of Project 1: Hosting a Static Website on Amazon S3!</p>
 
+        <p>This foundational step demonstrates your ability to:</p>
+        <ul>
+            <li>Create an S3 bucket.</li>
+            <li>Upload static website assets (HTML, CSS, images).</li>
+            <li>Configure the S3 bucket for static website hosting.</li>
+            <li>Set up an S3 bucket policy to allow public read access to your website content.</li>
+            <li>Access your website directly via the S3 static website endpoint.</li>
+        </ul>
+
+        <h3>Your Hosted Website Details:</h3>
+        <p>Your static website is now live and accessible via its S3 bucket website endpoint. This endpoint allows anyone on the internet to view your content.</p>
+        <p>
+            The bucket you used is: <code>thadaristaticsiteshostingsings3</code> (based on your screenshots).
+        </p>
+        <p>
+            Your index document: <code>index.html</code><br>
+            Your error document: <code>error.html</code>
+        </p>
+
+        <p>You can find your specific S3 website endpoint in the "Properties" tab of your S3 bucket under "Static website hosting." It typically looks like this:</p>
+        <div class="endpoint-url">
+            <code>http://thadaristaticsiteshostingsings3.s3-website.us-east-2.amazonaws.com</code> (Note: The region part might vary based on where you created your bucket. Please replace with your actual endpoint.)
+        </div>
+
+        <h3>What's Next?</h3>
+        <p>You've completed the S3 static hosting. To fully complete Project 1 and enhance your website, the next steps involve:</p>
+        <ul>
+            <li>**Integrating CloudFront:** To improve performance (CDN), add HTTPS, and secure access to your S3 bucket.</li>
+            <li>**Configuring Route 53 (Optional):** To use a custom domain name (e.g., <code>yourdomain.com</code>) instead of the S3/CloudFront endpoint URL.</li>
+        </ul>
+
+        <p>Great job on starting your AWS journey with a solid hands-on project!</p>
+    </div>
 </body>
 </html>
