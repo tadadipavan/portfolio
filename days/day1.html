@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS Cloud Journey: Day 1 Progress Report</title>
+    <title>AWS Cloud Journey: Day 1 Progress Report (Visualized)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +58,7 @@
             padding: 2px 6px;
             border-radius: 4px;
             font-family: 'Courier New', monospace;
-            color: #c82333; /* A slightly redder color for code for emphasis */
+            color: #c82333;
         }
         .note {
             background-color: #e0f7fa;
@@ -72,6 +72,28 @@
         .success {
             color: #28a745;
             font-weight: bold;
+        }
+        .screenshot-section {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #f1f3f5;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .screenshot-section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .screenshot-section p {
+            font-style: italic;
+            text-align: center;
+            color: #555;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -97,33 +119,53 @@
                 <ul>
                     <li>Created <code>index.html</code> (primary landing page) with content "Thadari Static Website is Live!" and "This static website is hosted on AWS S3 with public access and static hosting enabled."</li>
                     <li>Created <code>error.html</code> (custom error page) for 404 errors.</li>
-                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.18.58 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.19.02 PM.jpg</code>)</li>
                 </ul>
+                <div class="screenshot-section">
+                    <img src="index html.jpg" alt="index.html content">
+                    <p><code>index html.jpg</code>: Content of the <code>index.html</code> file.</p>
+                    <img src="error html.jpg" alt="error.html content">
+                    <p><code>error html.jpg</code>: Content of the <code>error.html</code> file.</p>
+                </div>
             </li>
             <li>
                 <strong>Created an Amazon S3 Bucket:</strong>
                 <ul>
                     <li>Navigated to the S3 service in the AWS Management Console.</li>
                     <li>Created a new bucket named <code>thadaristaticsiteshostingsings3</code> in the <code>us-east-2 (Ohio)</code> AWS Region.</li>
-                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.14.07 PM.jpg</code>)</li>
                 </ul>
+                <div class="screenshot-section">
+                    <img src="Successfully created bucket.jpg" alt="Successfully created S3 bucket">
+                    <p><code>Successfully created bucket.jpg</code>: Confirmation of S3 bucket creation.</p>
+                    <img src="edit properties.jpg" alt="S3 bucket properties">
+                    <p><code>edit properties.jpg</code>: S3 bucket properties tab.</p>
+                </div>
             </li>
             <li>
-                <strong>Configured S3 Bucket Policy for Public Access:</strong>
+                <strong>Configured S3 Bucket Public Access Settings & Policy:</strong>
                 <ul>
+                    <li>Reviewed and adjusted "Block Public Access" settings, acknowledging the need to allow public access for static website hosting.</li>
                     <li>Accessed the "Permissions" tab of the created S3 bucket.</li>
                     <li>Edited the "Bucket policy" to allow <code>s3:GetObject</code> action for the <code>*</code> principal (anonymous users) on all objects (<code>arn:aws:s3:::thadaristaticsiteshostingsings3/*</code>). This makes the objects publicly readable.</li>
-                    <li><div class="note"><strong>Note:</strong> Ensured "Block Public Access" settings were configured to allow public access (usually by turning off "Block all public access" or specific settings related to bucket policies).</div></li>
-                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.16.50 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.16.02 PM.png</code>)</li>
                 </ul>
+                <div class="screenshot-section">
+                    <img src="Block Public Access.jpg" alt="Block Public Access settings">
+                    <p><code>Block Public Access.jpg</code>: Acknowledging changes for public access.</p>
+                    <img src="policy.jpg" alt="Bucket policy configuration">
+                    <p><code>policy.jpg</code>: S3 bucket policy allowing public read access.</p>
+                </div>
             </li>
             <li>
                 <strong>Uploaded Website Content:</strong>
                 <ul>
                     <li>Navigated to the "Objects" tab of the S3 bucket.</li>
                     <li>Used the "Upload" feature to add <code>index.html</code> and <code>error.html</code> to the root of the bucket.</li>
-                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.17.05 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.19.31 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.21.08 PM.jpg</code>)</li>
                 </ul>
+                <div class="screenshot-section">
+                    <img src="html files uploaded.jpg" alt="HTML files uploaded to S3">
+                    <p><code>html files uploaded.jpg</code>: Confirmation of <code>error.html</code> and <code>index.html</code> being uploaded.</p>
+                    <img src="index file link.jpg" alt="Index HTML object details">
+                    <p><code>index file link.jpg</code>: Details for the <code>index.html</code> object in S3.</p>
+                </div>
             </li>
             <li>
                 <strong>Enabled S3 Static Website Hosting:</strong>
@@ -133,8 +175,13 @@
                     <li>Specified <code>index.html</code> as the "Index document."</li>
                     <li>Specified <code>error.html</code> as the "Error document" (optional but good practice).</li>
                     <li>Saved the changes.</li>
-                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.14.07 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.14.15 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.14.25 PM.jpg</code>)</li>
                 </ul>
+                <div class="screenshot-section">
+                    <img src="enable static.jpg" alt="Static website hosting disabled initially">
+                    <p><code>enable static.jpg</code>: Initial state where static website hosting is disabled (from properties tab).</p>
+                    <img src="enab static.jpg" alt="Enable static website hosting">
+                    <p><code>enab static.jpg</code>: The "Enable" option selected for static website hosting (from edit view).</p>
+                </div>
             </li>
             <li>
                 <strong>Verified Website Accessibility:</strong>
@@ -143,6 +190,7 @@
                     <li>Pasted the URL into a web browser and confirmed that <code>index.html</code> was displayed correctly.</li>
                     <li>Tested navigation to a non-existent path to verify <code>error.html</code> was served for 404 errors.</li>
                 </ul>
+                <div class="note"><strong>Verification Note:</strong> While a screenshot of the live website isn't provided here, this step confirms successful access via the S3 endpoint.</div>
             </li>
         </ol>
 
@@ -156,7 +204,7 @@
 
         <hr>
         <p style="text-align: center; font-size: 0.9em; color: #6c757d;">
-            Report generated on July 2, 2025, 4:26:29 PM EDT.
+            Report generated on July 2, 2025, 4:33:05 PM EDT.
         </p>
     </div>
 </body>
