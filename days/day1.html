@@ -3,98 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1, Part 1: S3 Static Website Hosting</title>
+    <title>AWS Cloud Journey: Day 1 Progress Report</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
         }
         .container {
             background: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 900px;
             margin: auto;
+            border-top: 5px solid #007bff;
         }
         h1 {
-            color: #2c3e50;
+            color: #007bff;
             text-align: center;
+            margin-bottom: 25px;
         }
         h2 {
-            color: #34495e;
-            border-bottom: 2px solid #eee;
+            color: #343a40;
+            border-bottom: 2px solid #e9ecef;
             padding-bottom: 10px;
-            margin-top: 30px;
+            margin-top: 35px;
+            font-size: 1.8em;
+        }
+        h3 {
+            color: #495057;
+            margin-top: 25px;
+            font-size: 1.4em;
         }
         p {
             margin-bottom: 10px;
         }
         ul {
             list-style-type: disc;
-            margin-left: 20px;
+            margin-left: 25px;
             padding-left: 0;
+            margin-bottom: 15px;
         }
         li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+        strong {
+            color: #0056b3;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #c82333; /* A slightly redder color for code for emphasis */
+        }
+        .note {
+            background-color: #e0f7fa;
+            border-left: 4px solid #00acc1;
+            padding: 10px 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            color: #007c91;
+            border-radius: 4px;
         }
         .success {
             color: #28a745;
             font-weight: bold;
         }
-        .endpoint-url {
-            background-color: #e9ecef;
-            padding: 10px;
-            border-radius: 5px;
-            word-break: break-all;
-            font-family: monospace;
-            margin-top: 15px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AWS Cloud Journey: Day 1 Accomplishment!</h1>
+        <h1>AWS Cloud Journey: Day 1 Progress Report</h1>
 
-        <h2>Part 1: Static Website Hosting on S3</h2>
+        <p><strong>Date:</strong> July 2, 2025</p>
 
-        <p class="success">Congratulations! You have successfully completed the first part of Project 1: Hosting a Static Website on Amazon S3!</p>
+        <p><strong>Overall Goal for Day 1:</strong> Begin hands-on work with AWS web hosting, specifically focusing on Project 1: Static Website Hosting.</p>
 
-        <p>This foundational step demonstrates your ability to:</p>
+        <hr>
+
+        <h2>Project 1: Static Website Hosting – Part 1 (S3 Only)</h2>
+
+        <p class="success"><strong>Objective Achieved:</strong> Successfully hosted a static website directly on Amazon S3 and made it publicly accessible via the S3 static website endpoint.</p>
+
+        <h3>Steps Taken & Details:</h3>
+
+        <ol>
+            <li>
+                <strong>Prepared Website Files:</strong>
+                <ul>
+                    <li>Created <code>index.html</code> (primary landing page) with content "Thadari Static Website is Live!" and "This static website is hosted on AWS S3 with public access and static hosting enabled."</li>
+                    <li>Created <code>error.html</code> (custom error page) for 404 errors.</li>
+                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.18.58 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.19.02 PM.jpg</code>)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Created an Amazon S3 Bucket:</strong>
+                <ul>
+                    <li>Navigated to the S3 service in the AWS Management Console.</li>
+                    <li>Created a new bucket named <code>thadaristaticsiteshostingsings3</code> in the <code>us-east-2 (Ohio)</code> AWS Region.</li>
+                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.14.07 PM.jpg</code>)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Configured S3 Bucket Policy for Public Access:</strong>
+                <ul>
+                    <li>Accessed the "Permissions" tab of the created S3 bucket.</li>
+                    <li>Edited the "Bucket policy" to allow <code>s3:GetObject</code> action for the <code>*</code> principal (anonymous users) on all objects (<code>arn:aws:s3:::thadaristaticsiteshostingsings3/*</code>). This makes the objects publicly readable.</li>
+                    <li><div class="note"><strong>Note:</strong> Ensured "Block Public Access" settings were configured to allow public access (usually by turning off "Block all public access" or specific settings related to bucket policies).</div></li>
+                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.16.50 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.16.02 PM.png</code>)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Uploaded Website Content:</strong>
+                <ul>
+                    <li>Navigated to the "Objects" tab of the S3 bucket.</li>
+                    <li>Used the "Upload" feature to add <code>index.html</code> and <code>error.html</code> to the root of the bucket.</li>
+                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.17.05 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.19.31 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.21.08 PM.jpg</code>)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Enabled S3 Static Website Hosting:</strong>
+                <ul>
+                    <li>Went to the "Properties" tab of the S3 bucket.</li>
+                    <li>Under "Static website hosting," clicked "Edit" and selected "Enable."</li>
+                    <li>Specified <code>index.html</code> as the "Index document."</li>
+                    <li>Specified <code>error.html</code> as the "Error document" (optional but good practice).</li>
+                    <li>Saved the changes.</li>
+                    <li>(Referenced: <code>Screenshot 2025-07-02 at 4.14.07 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.14.15 PM.jpg</code>, <code>Screenshot 2025-07-02 at 4.14.25 PM.jpg</code>)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Verified Website Accessibility:</strong>
+                <ul>
+                    <li>Copied the "Bucket website endpoint" URL from the "Static website hosting" section in the S3 bucket properties.</li>
+                    <li>Pasted the URL into a web browser and confirmed that <code>index.html</code> was displayed correctly.</li>
+                    <li>Tested navigation to a non-existent path to verify <code>error.html</code> was served for 404 errors.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <p><strong>Outcome:</strong> The static website is now live and directly accessible via the S3 provided endpoint. This completes the core S3 hosting component of Project 1.</p>
+
+        <h3>Next Steps for Project 1 (Upcoming):</h3>
         <ul>
-            <li>Create an S3 bucket.</li>
-            <li>Upload static website assets (HTML, CSS, images).</li>
-            <li>Configure the S3 bucket for static website hosting.</li>
-            <li>Set up an S3 bucket policy to allow public read access to your website content.</li>
-            <li>Access your website directly via the S3 static website endpoint.</li>
+            <li><strong>CloudFront Integration:</strong> Enhance the website with a Content Delivery Network (CDN) for improved performance, security (HTTPS), and lower latency for global users.</li>
+            <li><strong>Route 53 Custom Domain:</strong> Configure a custom domain name (e.g., <code>yourdomain.com</code>) to point to the CloudFront distribution, providing a user-friendly URL.</li>
         </ul>
 
-        <h3>Your Hosted Website Details:</h3>
-        <p>Your static website is now live and accessible via its S3 bucket website endpoint. This endpoint allows anyone on the internet to view your content.</p>
-        <p>
-            The bucket you used is: <code>thadaristaticsiteshostingsings3</code> (based on your screenshots).
+        <hr>
+        <p style="text-align: center; font-size: 0.9em; color: #6c757d;">
+            Report generated on July 2, 2025, 4:26:29 PM EDT.
         </p>
-        <p>
-            Your index document: <code>index.html</code><br>
-            Your error document: <code>error.html</code>
-        </p>
-
-        <p>You can find your specific S3 website endpoint in the "Properties" tab of your S3 bucket under "Static website hosting." It typically looks like this:</p>
-        <div class="endpoint-url">
-            <code>http://thadaristaticsiteshostingsings3.s3-website.us-east-2.amazonaws.com</code> (Note: The region part might vary based on where you created your bucket. Please replace with your actual endpoint.)
-        </div>
-
-        <h3>What's Next?</h3>
-        <p>You've completed the S3 static hosting. To fully complete Project 1 and enhance your website, the next steps involve:</p>
-        <ul>
-            <li>**Integrating CloudFront:** To improve performance (CDN), add HTTPS, and secure access to your S3 bucket.</li>
-            <li>**Configuring Route 53 (Optional):** To use a custom domain name (e.g., <code>yourdomain.com</code>) instead of the S3/CloudFront endpoint URL.</li>
-        </ul>
-
-        <p>Great job on starting your AWS journey with a solid hands-on project!</p>
     </div>
 </body>
 </html>
